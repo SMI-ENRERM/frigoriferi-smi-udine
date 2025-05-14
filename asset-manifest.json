@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/frigoriferi-smi-udine/static/css/main.e6c13ad2.css",
+    "main.js": "/frigoriferi-smi-udine/static/js/main.a55bc4d5.js",
+    "static/js/453.9ba1d458.chunk.js": "/frigoriferi-smi-udine/static/js/453.9ba1d458.chunk.js",
+    "index.html": "/frigoriferi-smi-udine/index.html",
+    "main.e6c13ad2.css.map": "/frigoriferi-smi-udine/static/css/main.e6c13ad2.css.map",
+    "main.a55bc4d5.js.map": "/frigoriferi-smi-udine/static/js/main.a55bc4d5.js.map",
+    "453.9ba1d458.chunk.js.map": "/frigoriferi-smi-udine/static/js/453.9ba1d458.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.a55bc4d5.js"
+  ]
+}
