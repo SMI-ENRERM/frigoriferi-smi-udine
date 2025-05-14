@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+# Comparatore Frigoriferi per Ufficio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Un'applicazione web interattiva per confrontare vari modelli di frigoriferi adatti a un ufficio di 10 persone. Questa applicazione permette di filtrare, confrontare e analizzare 20 diversi modelli di frigoriferi disponibili su Amazon Italia.
 
-## Available Scripts
+![Screenshot dell'applicazione](https://via.placeholder.com/800x400?text=Screenshot+Comparatore+Frigoriferi)
 
-In the project directory, you can run:
+## 🌟 Funzionalità
 
-### `npm start`
+- Visualizzazione di 20 modelli di frigoriferi con specifiche dettagliate
+- Filtri per capacità, classe energetica e fascia di prezzo
+- Ricerca per marca e modello
+- Calcolo del costo annuale di energia in base al consumo
+- Confronto delle caratteristiche positive e negative di ciascun modello
+- Visualizzazione dettagliata di ogni frigorifero
+- Interfaccia responsive per desktop e mobile
+- Collegamenti diretti per l'acquisto su Amazon
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+L'applicazione è disponibile online all'indirizzo: [https://smi-enrerm.github.io/frigoriferi-smi-udine](https://smi-enrerm.github.io/frigoriferi-smi-udine)
 
-### `npm test`
+## 💻 Tecnologie utilizzate
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React.js
+- Tailwind CSS
+- Lucide React per le icone
+- GitHub Pages per l'hosting
 
-### `npm run build`
+## 📋 Prerequisiti
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (versione 14.0.0 o superiore)
+- npm (versione 6.0.0 o superiore)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚙️ Installazione e setup locale
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clona il repository:
+   ```bash
+   git clone https://github.com/smi-enrerm/frigoriferi-smi-udine.git
+   cd frigoriferi-smi-udine
+   ```
 
-### `npm run eject`
+2. Installa le dipendenze:
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Avvia l'applicazione in modalità sviluppo:
+   ```bash
+   npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. L'applicazione sarà disponibile all'indirizzo [http://localhost:3000](http://localhost:3000)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🔄 Deployment su GitHub Pages
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Modifica il campo `homepage` nel file `package.json`:
+   ```json
+   "homepage": "https://smi-enrerm.github.io/frigoriferi-smi-udine"
+   ```
 
-## Learn More
+2. Esegui il comando di deploy:
+   ```bash
+   npm run deploy
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Controlla che nelle impostazioni del repository GitHub, la fonte per GitHub Pages sia impostata sul branch `gh-pages`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔧 Personalizzazione
 
-### Code Splitting
+### Modifica dei dati dei frigoriferi
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Per aggiungere, rimuovere o modificare i modelli di frigorifero, modifica l'array `frigoriferi` nel file `src/App.js`:
 
-### Analyzing the Bundle Size
+```javascript
+const [frigoriferi, setFrigoriferi] = useState([
+  {
+    id: 1,
+    marca: "NuovoMarchio",
+    modello: "NuovoModello",
+    capacita: 300,
+    tipologia: "Combinato",
+    dimensioni: "180x60x65",
+    classe: "A",
+    prezzo: 599.99,
+    consumo: 180,
+    caratteristichePositive: [
+      "Caratteristica positiva 1",
+      "Caratteristica positiva 2"
+    ],
+    caratteristicheNegative: [
+      "Caratteristica negativa 1"
+    ],
+    immagine: "https://via.placeholder.com/400x300?text=NuovoMarchio+NuovoModello",
+    urlAcquisto: "https://www.amazon.it/..."
+  },
+  // Altri frigoriferi...
+]);
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Modifica del costo dell'energia
 
-### Making a Progressive Web App
+Per aggiornare il costo dell'energia elettrica (attualmente impostato a 0,09€/kWh per Udine), modifica la costante `costoEnergiaKwh`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```javascript
+const costoEnergiaKwh = 0.10; // Nuovo valore
+```
 
-### Advanced Configuration
+### Modifica dei filtri
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+I filtri sono definiti nella funzione `applyFilters`. Puoi modificare le soglie per i vari filtri:
 
-### Deployment
+```javascript
+// Esempio: modifica delle soglie per il filtro di capacità
+if (filtriAttivi.capacita === 'small') {
+  matchesCapacity = frigo.capacita < 150; // Cambiato da 200 a 150
+} else if (filtriAttivi.capacita === 'medium') {
+  matchesCapacity = frigo.capacita >= 150 && frigo.capacita < 300; // Cambiato da 200-350 a 150-300
+} else if (filtriAttivi.capacita === 'large') {
+  matchesCapacity = frigo.capacita >= 300; // Cambiato da 350 a 300
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📝 Licenza
 
-### `npm run build` fails to minify
+Questo progetto è distribuito con licenza MIT.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 👥 Contatti
+
+Per domande o suggerimenti, contatta:
+- Email: enrico.ermacora@sanmarcoinformatica.it
+- GitHub: [smi-enrerm](https://github.com/smi-enrerm)
